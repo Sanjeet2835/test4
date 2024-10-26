@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Library</title>
+    <style>
+        
+    
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 100vh;
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+        
+        
+
+/* Background video styling */
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;  
+        }
+
+        .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-left: 720px;
+    margin-right: 50px;
+    min-height: 100vh; /* Allow the container to expand */
+}
+
+
+    @media (max-width: 768px) {
+        .container {
+            margin-left: 20px; /* Adjust margin for smaller screens */
+            margin-right: 20px; /* Ensure there’s space on both sides */
+            }
+        }
+
+
+        h1 {
+            color: #4d83b3;  /* Calming blue */
+            font-size: 2.5em;
+            margin-bottom: 20px;  /* Spacing below the main title */
+        }
+
+        /* Constant font size for audio titles, reduced */
+        .audio-title {
+            font-size: 1.2em;  /* Reduced font size for audio titles */
+            margin: 0;  /* Remove margin above and below titles */
+            padding-bottom: 2px;  /* Optional: small space for visual separation */
+        }
+
+        .audio-item {
+            margin: 0;  /* Remove margin to eliminate spacing */
+        }
+
+        audio {
+            width: 100%;  /* Full width for audio player */
+            margin-top: 2px;  /* Smaller space above the audio player */
+            border-radius: 5px;  /* Rounded edges */
+        }
+    </style>
+</head>
+<body>
+    <!-- Background video -->
+    <video autoplay loop muted playsinline>
+        <source src="{{ url_for('static', filename='audio/video/audiolibr.mp4') }}" type="video/mp4"> <!-- Replace with your video file -->
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container">
+        <h1>Welcome to the Audio Library</h1>
+        <p>Listen to calming audio tracks to help you relax.</p>
+
+        <div class="audio-item">
+            <h2 class="audio-title">Aesop Mountain</h2>
+            <audio controls>
+                <source src="{{ url_for('static', filename='audio/Aesop_Mountain(128k).mp3') }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="audio-item">
+            <h2 class="audio-title">Flooaw: Bailar De Nuevo</h2>
+            <audio controls>
+                <source src="{{ url_for('static', filename='audio/Flooaw_-_Bailar_De_Nuevo(128k).mp3') }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="audio-item">
+            <h2 class="audio-title">Aakash_Gandhi: Borderless</h2>
+            <audio controls>
+                <source src="{{ url_for('static', filename='audio/Aakash_Gandhi_-_Borderless_(No_Copyright_Music)(128k).mp3') }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="audio-item">
+            <h2 class="audio-title">Chill Instrumental Music</h2>
+            <audio controls>
+                <source src="{{ url_for('static', filename='audio/Chill_Instrumental_[Non_Copyrighted_Music]_Embrace_by_@Sappheiros__🇺🇸(128k).mp3') }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="audio-item">
+            <h2 class="audio-title">El Neón: Amanecer</h2>
+            <audio controls>
+                <source src="{{ url_for('static', filename='audio/El_Neón_-_Amanecer(128k).mp3') }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        
+        
+
+        <!-- 
+        <div class="audio-item">
+            <h2 class="audio-title">Chill Hip Hop Music</h2>
+            <audio controls>
+                <source src="{{ url_for('static', filename='audio/Chill_Hip_Hop_Background_Music_[Copyright_Free]_-__Far_Away_by_Sarah_Jansen_🇳🇱(128k).mp3') }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div> 
+        Add more audio items as needed -->
+    </div>
+</body>
+</html>

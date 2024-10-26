@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Your Personal Journal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #343a40; /* Dark text color */
+            margin: 0;
+            padding: 20px;
+            background-image: url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExam0zNDF3NTUzdm02OWxhMG1mcWZuZ2F6ZXNnNng1eGVkcm95NmVnMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zyFcsWHX2fdpyb5SBi/giphy.webp"); /* Add your image path here */
+            background-size: inherit; /* Cover the entire background */
+            background-position: center; /* Center the background image */
+            background-repeat: repeat; /* Do not repeat the background image */
+        }
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+        .login-container {
+            max-width: 400px; /* Limit the width of the login form */
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            margin-top: 120px;
+            margin-left: 450px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center the text inside the login container */
+             /* Center the container horizontally */
+        }
+        
+        input[type="text"], input[type="password"] {
+            width: 100%; /* Make inputs take full width */
+            padding: 10px;
+            margin: 10px 0; /* Space between inputs */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-btn {
+            padding: 10px 10px;
+            font-size: 1.1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .flash-message {
+            color: red; /* Change color for better visibility */
+            margin: 10px 0;
+        }
+        .signup-link {
+            margin-top: 15px; /* Space above the signup link */
+        }
+    </style>
+</head>
+<body style="background-color: #f0f4f8">
+
+
+        <!-- Navbar Section 
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="color:rgb(161, 161, 161)">
+            <div class="container-fluid" style="background-color: rgb(201, 168, 168)">
+                <a class="navbar-brand" style="color:white" href="#">Neura</a>
+                <button class="navbar-toggler" style="color:white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style="color:white" > </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="color:white">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="color:white">
+                        <li class="nav-item">
+                            <a class="nav-link active" style="color:white" aria-current="page"  href="/home">Home</a>
+                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color:white" href="/journal">Your Personal Journal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color:white" href="/motivational-quotes">Motivational Quotes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" style="color:white" href="/audio-library">Audio Library</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" style="color:white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Resources Hub
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" style="color:white" href="#">Anxiety</a></li>
+                                    <li><a class="dropdown-item" style="color:white" href="#">Stress Management</a></li>
+                                    <li><a class="dropdown-item" style="color:white" href="#">Depression</a></li>
+                                    <li><a class="dropdown-item" style="color:white" href="#">Self-Care</a></li>
+                                    -- <li><hr class="dropdown-divider"></li> 
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            <li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" style="color:white" aria-disabled="true">Emergency Help</a>
+                                </li>
+                            
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" style="color:rgb(0, 0, 0)" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" style="color:rgb(0, 0, 0)" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    
+        <br>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <br>
+    <br>
+    <br>-->
+    
+    <div class="login-container" style="background-color:  rgb(255, 255, 255)" >
+        <h1> <b>Login</b> </h1>
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash-message">{{ messages[0] }}</div>
+          {% endif %}
+        {% endwith %}
+        
+        <div class="signup-link" style="background-color: rgb(255, 254, 254)">
+            <p> New Friend? <a href="{{ url_for('signup') }}">Sign up now</a></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
